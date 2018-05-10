@@ -12,10 +12,13 @@
  *	data is a pointer to user data.
  */
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data) {
-	
-	// randomically turns leds on and off
-	int i = rand() % 6;
-	return state ^ (1 << i);
+  unsigned char led_id[6] = {97,115,100,102,103,104};
+
+  for (int i = 0; i < 6; i++) {
+    if (key == led_id[i]){
+      return state ^ (1 << i);
+    }
+  }
 }  
 
 
