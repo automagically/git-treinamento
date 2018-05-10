@@ -13,9 +13,7 @@
  */
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data) {
 	
-	// randomically turns leds on and off
-	int i = rand() % 6;
-	return state ^ (1 << i);
+	return state + 1;
 }  
 
 
