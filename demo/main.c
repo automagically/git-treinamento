@@ -12,7 +12,7 @@
  *	data is a pointer to user data.
  */
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data) {
-	
+	printf("Thiago was here");
 	return state + 1;
 }  
 
