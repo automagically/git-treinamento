@@ -13,11 +13,11 @@
  */
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data) {
   switch (*data){
-    0: return 0;
-    1: return state;
-    2: return state;
-    3: return state;
-    4: return state;
+    case 0: return 0;
+    case 1: return 1;
+    case 2: return state;
+    case 3: return state;
+    case 4: return state;
     default: return state + 1;
   }  
 }  
