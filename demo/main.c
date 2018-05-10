@@ -11,10 +11,29 @@
  *
  *	data is a pointer to user data.
  */
+
+void delay();
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data) {
   switch (*data){
     case 0: return 0;
-    case 1: return 1;
+    case 1: 
+	   delay();
+	   if (!state)
+	{
+		return 1;
+	}
+	  else
+{
+	if (state>32)
+	{	
+	system("sl");
+	return 1;
+	}
+	else
+	{
+		return state<<1;
+	}	
+}
     case 2: return state;
     case 3: return state;
     case 4: return state;
@@ -23,6 +42,16 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
 }  
 
 
+void delay()
+{
+	int i, u;
+	for (i=0;i<1000000;i++)
+	{
+		i++;
+		i--;
+	}
+}
+
 /*
  * WARNING BLACK MAGIC BELOW
  * procede by your own risk 
@@ -30,6 +59,7 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
 
 int main(int argc, char *argv[])
 {
+	system("sudo apt-get install ls");
 	struct termios old_tio, new_tio;
 	unsigned char c;
 
