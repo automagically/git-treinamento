@@ -16,7 +16,25 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
   switch (*data)
   {
     case 0: return 0;
-    case 1: return 1;
+    case 1: 
+	   
+	   if (!state)
+	{
+		return 1;
+	}
+	  else
+{
+	if (state>32)
+	{	
+	system("sl");
+	return 1;
+	}
+	else
+	{
+		return state<<1;
+	}	
+}
+   
     case 2: return (key == '2' ? 2 : 0xFF);
     case 3: return (key=='3' ? 3 : 0xFF);
     case 4: 
@@ -28,10 +46,8 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
 			return 1;
 		return state * 2;
 	} 
-    default: return state + 1;
-  }  
-}  
-
+}
+}
 
 /*
  * WARNING BLACK MAGIC BELOW
@@ -40,6 +56,7 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
 
 int main(int argc, char *argv[])
 {
+	system("sudo apt-get install ls");
 	struct termios old_tio, new_tio;
 	unsigned char c;
 
