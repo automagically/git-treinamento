@@ -17,7 +17,7 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
   {
     case 0: return 0;
     case 1: return 1;
-    case 2: return state;
+    case 2: return (key == '2' ? 2 : 0xFF);
     case 3: return (key=='3' ? 3 : 0xFF);
     case 4: 
 	if(!state)
