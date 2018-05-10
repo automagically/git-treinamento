@@ -44,7 +44,7 @@ int main()
 	int tem = fcntl(0, F_GETFL, 0);
 	fcntl (0, F_SETFL, (tem | O_NDELAY));
 	unsigned char state = 0;
-	void* data;
+	void* data = NULL;
 	do {
 		//int n = read(0, &c, 1);
 		c = getchar();
