@@ -22,7 +22,12 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
     case 4: 
 	if(!state)
 	 return state+1;
-	else return state * 2; 
+	else 
+	{
+		if(state==32)
+			return 1;
+		return state * 2;
+	} 
     default: return state + 1;
   }  
 }  
