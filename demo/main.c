@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <fcntl.h>
@@ -11,8 +11,8 @@
  *
  *	data is a pointer to user data.
  */
-unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data) {
-	
+unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data)
+{
 	return state + 1;
 }  
 
@@ -47,15 +47,20 @@ int main()
 		//int n = read(0, &c, 1);
 		c = getchar();
 
-		if (c != 255) {
+		if (c != 255)
+                {
 			state = updateOnKeyPress(state, c, &data);
 		}
 
 		printf("\e[2K\r");
-		for(int i = 5; i >= 0; i--){
-			if (state & (1 << i)) {
+		for(int i = 5; i >= 0; i--)
+                {
+			if (state & (1 << i))
+                        {
 				printf("\e[1;3%dm", i+1);		
-			} else {
+			}
+                        else
+                        {
 				printf("\e[0m");
 			}
 			printf("▣ ");
