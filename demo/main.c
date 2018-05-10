@@ -14,6 +14,8 @@
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data) {
 	
 	return state - 1;
+	printf("▣ ");
+	printf("fp ");
 	
 	
 }  
