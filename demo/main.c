@@ -12,8 +12,14 @@
  *	data is a pointer to user data.
  */
 unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data) {
-	
-	return state + 1;
+  switch (*data){
+    0: return 0;
+    1: return state;
+    2: return state;
+    3: return state;
+    4: return state;
+    default: return state + 1;
+  }  
 }  
 
 
