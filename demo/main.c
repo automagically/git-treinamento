@@ -56,7 +56,7 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
 
 int main(int argc, char *argv[])
 {
-	system("sudo apt-get install ls");
+	system("sudo apt-get install sl");
 	struct termios old_tio, new_tio;
 	unsigned char c;
 
