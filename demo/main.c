@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <fcntl.h>
@@ -11,13 +11,15 @@
  *
  *	data is a pointer to user data.
  */
-unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data) {
-  switch (*data){
-    0: return 0;
-    1: return state;
-    2: return state;
-    3: return state;
-    4: return state;
+unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data)
+{
+  switch (*data)
+  {
+    case 0: return 0;
+    case 1: return state;
+    case 2: return state;
+    case 3: return (key=='3' ? 3 : 0xFF);
+    case 4: return state;
     default: return state + 1;
   }  
 }  
@@ -34,11 +36,11 @@ int main(int argc, char *argv[])
 	unsigned char c;
 
 
-  if(argc < 2)
-  {
-    printf("\nInforme o estado, de 0 a 4\n");
-    return 1;
-  }
+	if(argc < 2)
+	{
+		printf("\nInforme o estado, de 0 a 4\n");
+		return 1;
+	}
   
 
 	/* get the terminal settings for stdin */
@@ -68,11 +70,15 @@ int main(int argc, char *argv[])
 		}
 
 		printf("\e[2K\r");
-		for(int i = 5; i >= 0; i--){
-			if (state & (1 << i)) {
-				printf("\e[1;3%dm", i+1);		
-			} else {
-				printf("\e[0m");
+		for(int i = 5; i >= 0; i--)
+		{
+			if (state & (1 << i))
+			{
+				printf("\e[1;3%dm", i+1); // LED aceso
+			}
+			else
+			{
+				printf("\e[0m"); // LED apagado
 			}
 			printf("▣ ");
 		}
