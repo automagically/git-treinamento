@@ -52,7 +52,7 @@ int main()
 		}
 
 		printf("\e[2K\r");
-		for(int i = 0; i < 6; i++){
+		for(int i = 5; i >= 0; i--){
 			if (state & (1 << i)) {
 				printf("\e[1;3%dm", i+1);		
 			} else {
