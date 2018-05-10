@@ -17,7 +17,10 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
     case 1: return state;
     case 2: return state;
     case 3: return state;
-    case 4: return state;
+    case 4: 
+	if(!state)
+	 return state+1;
+	else return state * 2;
     default: return state + 1;
   }  
 }  
