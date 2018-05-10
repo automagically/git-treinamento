@@ -11,7 +11,7 @@
  *
  *	data is a pointer to user data.
  */
-unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** data) {
+unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data) {
 	
 	return state + 1;
 }  
@@ -22,10 +22,18 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** da
  * procede by your own risk 
  */
 
-int main()
+int main(int argc, char *argv[])
 {
 	struct termios old_tio, new_tio;
 	unsigned char c;
+
+
+  if(argc < 2)
+  {
+    printf("\nInforme o estado, de 0 a 4\n");
+    return 1;
+  }
+  
 
 	/* get the terminal settings for stdin */
 	tcgetattr(STDIN_FILENO,&old_tio);
@@ -42,7 +50,9 @@ int main()
 	int tem = fcntl(0, F_GETFL, 0);
 	fcntl (0, F_SETFL, (tem | O_NDELAY));
 	unsigned char state = 0;
-	void* data = NULL;
+
+
+	int data = *argv[1] - '0';
 	do {
 		//int n = read(0, &c, 1);
 		c = getchar();
