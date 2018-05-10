@@ -60,9 +60,6 @@ int main()
 			}
 			printf("▣ ");
 		}
-		if (c != 255){
-			printf("\e[0m %d", c);
-		}
 		usleep(50*1000);
  	} while(c!='q'	);
 
