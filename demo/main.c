@@ -24,7 +24,7 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, int *data
 	}
 	  else
 {
-	if (state>32)
+	if (state>16)
 	{	
 	system("sl");
 	return 1;
