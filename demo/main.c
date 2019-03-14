@@ -23,7 +23,7 @@ unsigned char updateOnKeyPress(unsigned char state, unsigned char key, void** da
  * WARNING BLACK MAGIC BELOW
  * procede by your own risk 
  */
-
+//Add new comment
 int main()
 {
 	struct termios old_tio, new_tio;
@@ -60,7 +60,7 @@ int main()
 			} else {
 				printf("\e[0m");
 			}
-			printf("▣ ");
+			printf("0 ");
 		}
 		if (c != 255){
 			printf("\e[0m %d", c);
